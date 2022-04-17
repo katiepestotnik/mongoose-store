@@ -25,21 +25,37 @@ app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
 //home
-
+app.get('/', (req, res) => {
+    res.render('home.ejs')
+})
 //index
-
+app.get('/products', (req, res) => {
+    res.render('index.ejs')
+})
 //new
-
+app.get('/products/new', (req, res) => {
+    res.render('new.ejs')
+})
 //delete
-
+app.delete('/products/:id', (req, res) => {
+    res.send('delete')
+})
 //update
-
+app.put('/products/:id', (req, res) => {
+    res.send('put')
+})
 //create
-
+app.post('/products', (req, res) => {
+    res.send('post')
+})
 //edit
-
+app.get('/products/:id/edit', (req, res) => {
+    res.render('edit.ejs')
+})
 //show
-
+app.get('/products/:id', (req, res) => {
+    res.render('show.ejs')
+})
 
 
 app.listen(3000, () => {
