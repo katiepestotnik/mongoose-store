@@ -1,7 +1,8 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const Products = require('./models/products')
+const Product = require('./models/products')
+const seedProducts = require('./models/seedProducts')
 const MONGODB_URL=process.env.MONGODB_URL
 const methodOverride = require('method-override')
 const morgan = require('morgan')
@@ -24,13 +25,24 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
+//seed
+app.get('/products/seed', (req, res) => {
+    Product.deleteMany({}, (err, deletedProducts) => {
+        Product.create(seedProducts, (err, products) => {
+            res.redirect('/products')
+        })
+    })
+})
+
 //home
 app.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home.ejs', )
 })
 //index
 app.get('/products', (req, res) => {
-    res.render('index.ejs')
+    Product.find({}, (err, products) => {
+        res.render('index.ejs', { products:products})
+    })
 })
 //new
 app.get('/products/new', (req, res) => {
