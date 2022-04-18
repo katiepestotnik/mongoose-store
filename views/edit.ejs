@@ -3,28 +3,30 @@
 <%- include("./partials/head.ejs") %>
 <body>
     <nav><a href="/products">INDEX</a><a href="/">HOME</a><a href="/products/id"></a></nav>
-    <h1>EDIT</h1>
-    <img src="<%=product.img%>" alt="<%=product.name%>">
-    <form action="/products/<%=product.id%>?_method=PUT" method="post">
+    <div class="image-container">
+    <h1><%=product.name%></h1>
+    <img class="edit-img" src="<%=product.img%>" alt="<%=product.name%>">
+    </div>
+    <form class="form" action="/products/<%=product.id%>?_method=PUT" method="post">
         <fieldset>
             <legend>EDIT PRODUCT</legend><br>
-            <label>
+            <label>Name:<br>
                 <input 
                 type="text" name="name" value="<%=product.name%>" 
                 required>
             </label><br><br>
-            <label>
+            <label>Description:<br>
                 <textarea name="<%=product.description%>" id="" cols="30" rows="10" placeholder="<%=product.description%>"></textarea>
             </label><br><br>
-            <label>
+            <label>Image:<br>
                 <input 
                 type="url" name="img" value="<%=product.img%>">
             </label><br><br>
-            <label>
+            <label>Price:<br>
                 <input type="number" name="price" value="<%=product.price%>"
                 min="0">
             </label><br><br>
-            <label>
+            <label>Quantity:<br>
                 <input type="number" name="qty" value="<%=product.qty%>"
                 min="0">
             </label><br><br>
