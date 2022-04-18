@@ -19,9 +19,14 @@
         class="delete" 
         type="submit" value="DELETE">
         </form>
-        <form action="/products/buy/<%=id%>?_method=PUT" method="post">
-            <input type="submit" class="buy" value="BUY">
-        </form>
+        <% if(product.qty <= 0){%>
+            <div>CANNOT BUY</div>
+        <%} else {%>
+            <form action="/products/buy/<%=id%>?_method=PUT" method="post">
+                <input type="submit" class="buy" value="BUY">
+            </form>
+        <%}%>
+
     </div>
 </body>
 </html>
