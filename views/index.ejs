@@ -2,11 +2,13 @@
 <html lang="en">
 <%- include("./partials/head.ejs") %>
 <body>
-    <nav><a href="/">HOME</a></nav>
+    <nav><a href="/products/new">ADD PRODUCT</a><a href="/">HOME</a></nav>
     <h1>INDEX</h1>
     <ul>
-        <% products.forEach((product, index)=>{%>
+        <% products.forEach((product)=>{%>
             <li><%=product.name%></li>
+            <a href="/products/<%=product._id%>"><img src="<%=product.img%>" alt="<%=product.name%>"></a>
+
        <% })%>
     </ul>
 </body>

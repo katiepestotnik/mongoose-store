@@ -25,6 +25,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
+//buy function
+const buy = (item) => {
+    console.log(item--)
+}
+
+
+
 //seed
 app.get('/products/seed', (req, res) => {
     Product.deleteMany({}, (err, deletedProducts) => {
@@ -52,9 +59,23 @@ app.get('/products/new', (req, res) => {
 app.delete('/products/:id', (req, res) => {
     res.send('delete')
 })
+//update with buy
+app.put('/products/buy/:id', (req, res) => {
+    const { id } = req.params
+    Product.findByIdAndUpdate(id, req.body, (err, product) => {
+        product.qty -= 1
+        product.save()
+        res.redirect(`/products/${id}`)
+        })
+    })
+
+
 //update
 app.put('/products/:id', (req, res) => {
-    res.send('put')
+    const {id}=req.params
+    Product.findByIdAndUpdate(id, req.body, (err, product) => {
+        
+    })
 })
 //create
 app.post('/products', (req, res) => {
@@ -66,7 +87,11 @@ app.get('/products/:id/edit', (req, res) => {
 })
 //show
 app.get('/products/:id', (req, res) => {
-    res.render('show.ejs')
+    const {id}=req.params
+    Product.findById(id, (err, product) => {
+        console.log(err)
+        res.render('show.ejs', {product:product, id:req.params.id})
+    })
 })
 
 

@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include("./partials/head.ejs") %>
+
 <body>
-    <nav><a href="/products">INDEX</a><a href="/">HOME</a></nav>
-    <h1>SHOW</h1>
+    <nav><a href="/products/<%=id%>/edit"></a><a href="/products">INDEX</a><a href="/">HOME</a></nav>
+    <div class="container">
+        <h1><%=product.name%></h1>
+        <p><%=product.description%></p>
+        <img src="<%=product.img%>" alt="<%=product.name%>">
+        <div>$<%=product.price%></div>
+        <div>Quantity: <%=product.qty%></div>
+        <form action="/products/<%=product._id%>?_method=DELETE" method="post">
+        <input 
+        class="delete" 
+        type="submit" value="DELETE">
+        </form>
+        <form action="/products/buy/<%=id%>?_method=PUT" method="post">
+            <input type="submit" class="buy" value="BUY">
+        </form>
+    </div>
 </body>
 </html>

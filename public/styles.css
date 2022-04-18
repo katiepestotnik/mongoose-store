@@ -21,3 +21,33 @@ a{
 ul{
     list-style-type: none;
 }
+img{
+    height: 250px;
+    width: 250px;
+    border: 5px solid #ad4ebb;
+    padding: 7px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+.container > *{
+    margin: 10px;
+}
+.delete{
+    background-color: #f66386;
+    color: #fff; 
+    border: 1px solid #fff;
+    padding: 5px;
+    font-size: 20px;
+}
+.buy{
+    background-color: #652eff;
+    color: #fff; 
+    border: 1px solid #fff;
+    padding: 5px;
+    font-size: 20px;
+}
