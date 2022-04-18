@@ -57,7 +57,10 @@ app.get('/products/new', (req, res) => {
 })
 //delete
 app.delete('/products/:id', (req, res) => {
-    res.send('delete')
+    const {id}=req.params
+    Product.findByIdAndDelete(id, (err, data) => {
+        err?console.log('oops'):res.redirect('/products')
+    })
 })
 //update with buy
 app.put('/products/buy/:id', (req, res) => {
@@ -79,7 +82,9 @@ app.put('/products/:id', (req, res) => {
 })
 //create
 app.post('/products', (req, res) => {
-    res.send('post')
+    Product.create(req.body, (err, product) => {
+        res.redirect('/products')
+    })
 })
 //edit
 app.get('/products/:id/edit', (req, res) => {

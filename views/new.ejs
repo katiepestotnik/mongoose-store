@@ -3,6 +3,34 @@
 <%- include("./partials/head.ejs") %>
 <body>
     <nav><a href="/products">INDEX</a><a href="/">HOME</a></nav>
-    <h1>NEW</h1>
+    <h1>CREATE PRODUCT</h1>
+    <form action="/products" method="post">
+        <fieldset>
+            <legend>NEW PRODUCT</legend><br>
+            <label>
+                <input 
+                type="text" name="name" placeholder="Product Name" 
+                required>
+            </label><br><br>
+            <label>
+                <input 
+                type="text" name="description" placeholder="Product Description">
+            </label><br><br>
+            <label>
+                <input 
+                type="url" name="img" placeholder="Product Image URL">
+            </label><br><br>
+            <label>
+                <input type="number" name="price" placeholder="Product Price"
+                min="0">
+            </label><br><br>
+            <label>
+                <input type="number" name="qty" placeholder="Product Quantity"
+                min="0">
+            </label><br><br>
+        </fieldset><br>
+        <input class="positive"
+        type="submit" value="ADD TO INVENTORY">
+    </form>
 </body>
 </html>

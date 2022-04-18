@@ -3,7 +3,15 @@
 <%- include("./partials/head.ejs") %>
 
 <body>
-    <nav><a href="/products/<%=id%>/edit"></a><a href="/products">INDEX</a><a href="/">HOME</a></nav>
+    <nav>
+        <div class="show-nav">
+            <a href="/products/<%=id%>/edit">EDIT</a>
+            <div>
+                <a href="/products">INDEX</a>
+                <a href="/">HOME</a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <h1><%=product.name%></h1>
         <p><%=product.description%></p>
@@ -14,19 +22,18 @@
         <%}else {%>
             <div>Quantity: <%=product.qty%></div>
         <%}%>
-        <form action="/products/<%=product._id%>?_method=DELETE" method="post">
-        <input 
-        class="delete" 
-        type="submit" value="DELETE">
-        </form>
         <% if(product.qty <= 0){%>
             <div>CANNOT BUY</div>
         <%} else {%>
             <form action="/products/buy/<%=id%>?_method=PUT" method="post">
-                <input type="submit" class="buy" value="BUY">
+                <input type="submit" class="positive" value="BUY">
             </form>
         <%}%>
-
+            <form action="/products/<%=product._id%>?_method=DELETE" method="post">
+                <input 
+                class="delete" 
+                type="submit" value="DELETE">
+            </form>
     </div>
 </body>
 </html>

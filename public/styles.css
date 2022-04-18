@@ -1,6 +1,8 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* nav style */
 nav{
     display: flex;
     justify-content: flex-end;
@@ -8,11 +10,18 @@ nav{
     height: 50px;
     width: 100%;
     align-items: center;
-
 }
+.show-nav{
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+
 a{
-    margin-left: 15px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     text-decoration: none;
     color: white;
     padding: 5px;
@@ -37,6 +46,9 @@ img{
 .container > *{
     margin: 10px;
 }
+
+/* buttons */
+
 .delete{
     background-color: #f66386;
     color: #fff; 
@@ -44,10 +56,11 @@ img{
     padding: 5px;
     font-size: 20px;
 }
-.buy{
+.positive{
     background-color: #652eff;
     color: #fff; 
     border: 1px solid #fff;
     padding: 5px;
     font-size: 20px;
 }
+
