@@ -77,7 +77,7 @@ app.put('/products/buy/:id', (req, res) => {
 app.put('/products/:id', (req, res) => {
     const {id}=req.params
     Product.findByIdAndUpdate(id, req.body, (err, product) => {
-        
+        res.redirect(`/products/${id}`)
     })
 })
 //create
@@ -88,7 +88,10 @@ app.post('/products', (req, res) => {
 })
 //edit
 app.get('/products/:id/edit', (req, res) => {
-    res.render('edit.ejs')
+    const {id}=req.params
+    Product.findById(id, (err, product) => {
+        res.render('edit.ejs', {product})
+    })
 })
 //show
 app.get('/products/:id', (req, res) => {

@@ -4,6 +4,34 @@
 <body>
     <nav><a href="/products">INDEX</a><a href="/">HOME</a><a href="/products/id"></a></nav>
     <h1>EDIT</h1>
+    <img src="<%=product.img%>" alt="<%=product.name%>">
+    <form action="/products/<%=product.id%>?_method=PUT" method="post">
+        <fieldset>
+            <legend>EDIT PRODUCT</legend><br>
+            <label>
+                <input 
+                type="text" name="name" value="<%=product.name%>" 
+                required>
+            </label><br><br>
+            <label>
+                <textarea name="<%=product.description%>" id="" cols="30" rows="10" placeholder="<%=product.description%>"></textarea>
+            </label><br><br>
+            <label>
+                <input 
+                type="url" name="img" value="<%=product.img%>">
+            </label><br><br>
+            <label>
+                <input type="number" name="price" value="<%=product.price%>"
+                min="0">
+            </label><br><br>
+            <label>
+                <input type="number" name="qty" value="<%=product.qty%>"
+                min="0">
+            </label><br><br>
+        </fieldset><br>
+        <input class="positive"
+        type="submit" value="EDIT PRODUCT">
+    </form>
     
 </body>
 </html>
