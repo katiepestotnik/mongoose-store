@@ -9,7 +9,11 @@
         <p><%=product.description%></p>
         <img src="<%=product.img%>" alt="<%=product.name%>">
         <div>$<%=product.price%></div>
-        <div>Quantity: <%=product.qty%></div>
+        <% if(product.qty <= 0){%>
+            <div>OUT OF STOCK</div>
+        <%}else {%>
+            <div>Quantity: <%=product.qty%></div>
+        <%}%>
         <form action="/products/<%=product._id%>?_method=DELETE" method="post">
         <input 
         class="delete" 
