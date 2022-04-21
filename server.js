@@ -6,7 +6,7 @@ const seedProducts = require('./models/seedProducts')
 const MONGODB_URL=process.env.MONGODB_URL
 const methodOverride = require('method-override')
 const morgan = require('morgan')
-
+const PORT = process.env.PORT || 3001
 const mongoose = require('mongoose')
 const db = mongoose.connection
 mongoose.connect(MONGODB_URL)
@@ -103,6 +103,6 @@ app.get('/products/:id', (req, res) => {
 })
 
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server on')
 })
