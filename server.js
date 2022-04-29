@@ -104,5 +104,5 @@ app.get('/products/:id', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log('Server on')
+    console.log(`Server on ${PORT}`)
 })
