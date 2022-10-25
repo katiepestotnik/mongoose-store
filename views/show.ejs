@@ -5,10 +5,13 @@
 <body>
     <nav>
         <div class="show-nav">
-            <a href="/products/<%=id%>/edit">EDIT</a>
             <div>
-                <a href="/products">INDEX</a>
                 <a href="/">HOME</a>
+                <a href="/products">PRODUCTS</a>
+            </div>
+
+            <div>
+                <a href="/products/<%=id%>/edit">EDIT</a>
             </div>
         </div>
     </nav>
@@ -19,12 +22,9 @@
         <div>$<%=product.price%></div>
         <% if(product.qty <= 0){%>
             <div>OUT OF STOCK</div>
+            <div>CANNOT BUY</div>
         <%}else {%>
             <div>Quantity: <%=product.qty%></div>
-        <%}%>
-        <% if(product.qty <= 0){%>
-            <div>CANNOT BUY</div>
-        <%} else {%>
             <form action="/products/buy/<%=id%>?_method=PUT" method="post">
                 <input type="submit" class="positive" value="BUY">
             </form>

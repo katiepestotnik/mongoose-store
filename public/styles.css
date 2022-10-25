@@ -93,3 +93,20 @@ nav{
     margin: 0 auto;
     color: #ad4ebb
 }
+.home-img{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.home-img > img {
+    height: 400px;
+    width: 400px;
+}
+.edit-nav{
+    display: flex;
+    justify-content: space-between;
+}
+.new-nav{
+    display: flex;
+    justify-content: flex-start;
+}

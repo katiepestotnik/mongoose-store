@@ -25,13 +25,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 app.use(express.static('public'))
 
-//buy function
-const buy = (item) => {
-    console.log(item--)
-}
-
-
-
 //seed
 app.get('/products/seed', (req, res) => {
     Product.deleteMany({}, (err, deletedProducts) => {
